@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegistrationScreen : UIViewController
+@class RegistrationInfo;
+
+@interface RegistrationScreen : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField* usernameField;
 @property (nonatomic, weak) IBOutlet UITextField* emailField;
 @property (nonatomic, weak) IBOutlet UITextField* passwordField;
 
 @property (nonatomic, weak) IBOutlet UIButton* registerButton;
+
+@property (nonatomic, strong) RegistrationInfo* info;
 
 - (IBAction)tapRegister:(id)sender;
 

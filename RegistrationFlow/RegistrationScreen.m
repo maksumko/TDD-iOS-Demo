@@ -7,11 +7,45 @@
 //
 
 #import "RegistrationScreen.h"
+#import "RegistrationInfo.h"
 
 @implementation RegistrationScreen
 
-- (IBAction)tapRegister:(id)sender {
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
+    _info = [[RegistrationInfo alloc]init];
+}
+
+- (IBAction)tapRegister:(id)sender {
+    NSString* validationResult = [_info validate];
+    
+    if(validationResult == nil) {
+        _usernameField.text = nil;
+        _passwordField.text = nil;
+        _emailField.text = nil;
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:validationResult delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if([textField isEqual:_usernameField]) {
+        _info.username = textField.text;
+    }
+    
+    if([textField isEqual:_emailField]) {
+        _info.email = textField.text;
+    }
+    if([textField isEqual:_passwordField]) {
+        _info.password = textField.text;
+    }
 }
 
 @end

@@ -14,6 +14,9 @@
 		9438F6EA1AE01D5E0068B5FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9438F6E91AE01D5E0068B5FC /* Main.storyboard */; };
 		9438F6ED1AE01E1E0068B5FC /* RegistrationScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6EC1AE01E1E0068B5FC /* RegistrationScreenTests.m */; };
 		9438F6F01AE01EDF0068B5FC /* RegistrationScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6EF1AE01EDF0068B5FC /* RegistrationScreen.m */; };
+		9438F6F21AE0241F0068B5FC /* RegistrationInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6F11AE0241F0068B5FC /* RegistrationInfoTests.m */; };
+		9438F6F51AE024730068B5FC /* RegistrationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6F41AE024730068B5FC /* RegistrationInfo.m */; };
+		9438F7021AE0294E0068B5FC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438F7011AE0294E0068B5FC /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,19 @@
 		9438F6EC1AE01E1E0068B5FC /* RegistrationScreenTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationScreenTests.m; sourceTree = "<group>"; };
 		9438F6EE1AE01EDF0068B5FC /* RegistrationScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationScreen.h; sourceTree = "<group>"; };
 		9438F6EF1AE01EDF0068B5FC /* RegistrationScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationScreen.m; sourceTree = "<group>"; };
+		9438F6F11AE0241F0068B5FC /* RegistrationInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationInfoTests.m; sourceTree = "<group>"; };
+		9438F6F31AE024730068B5FC /* RegistrationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationInfo.h; sourceTree = "<group>"; };
+		9438F6F41AE024730068B5FC /* RegistrationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationInfo.m; sourceTree = "<group>"; };
+		9438F6F81AE0294E0068B5FC /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		9438F6F91AE0294E0068B5FC /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		9438F6FA1AE0294E0068B5FC /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		9438F6FB1AE0294E0068B5FC /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		9438F6FC1AE0294E0068B5FC /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		9438F6FD1AE0294E0068B5FC /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		9438F6FE1AE0294E0068B5FC /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		9438F6FF1AE0294E0068B5FC /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		9438F7001AE0294E0068B5FC /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
+		9438F7011AE0294E0068B5FC /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438F7021AE0294E0068B5FC /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,7 @@
 			children = (
 				9438F6D01AE01D000068B5FC /* Images.xcassets */,
 				9438F6C21AE01D000068B5FC /* RegistrationFlow */,
+				9438F6F61AE0294E0068B5FC /* OCMock */,
 				9438F6C11AE01D000068B5FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +102,9 @@
 				9438F6EC1AE01E1E0068B5FC /* RegistrationScreenTests.m */,
 				9438F6EE1AE01EDF0068B5FC /* RegistrationScreen.h */,
 				9438F6EF1AE01EDF0068B5FC /* RegistrationScreen.m */,
+				9438F6F11AE0241F0068B5FC /* RegistrationInfoTests.m */,
+				9438F6F31AE024730068B5FC /* RegistrationInfo.h */,
+				9438F6F41AE024730068B5FC /* RegistrationInfo.m */,
 				9438F6C71AE01D000068B5FC /* AppDelegate.h */,
 				9438F6C81AE01D000068B5FC /* AppDelegate.m */,
 				9438F6D21AE01D010068B5FC /* LaunchScreen.xib */,
@@ -101,6 +122,31 @@
 				9438F6C51AE01D000068B5FC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9438F6F61AE0294E0068B5FC /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				9438F6F71AE0294E0068B5FC /* headers */,
+				9438F7011AE0294E0068B5FC /* libOCMock.a */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		9438F6F71AE0294E0068B5FC /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				9438F6F81AE0294E0068B5FC /* NSNotificationCenter+OCMAdditions.h */,
+				9438F6F91AE0294E0068B5FC /* OCMArg.h */,
+				9438F6FA1AE0294E0068B5FC /* OCMConstraint.h */,
+				9438F6FB1AE0294E0068B5FC /* OCMLocation.h */,
+				9438F6FC1AE0294E0068B5FC /* OCMMacroState.h */,
+				9438F6FD1AE0294E0068B5FC /* OCMock.h */,
+				9438F6FE1AE0294E0068B5FC /* OCMockObject.h */,
+				9438F6FF1AE0294E0068B5FC /* OCMRecorder.h */,
+				9438F7001AE0294E0068B5FC /* OCMStubRecorder.h */,
+			);
+			path = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438F6F51AE024730068B5FC /* RegistrationInfo.m in Sources */,
 				9438F6C91AE01D000068B5FC /* AppDelegate.m in Sources */,
 				9438F6C61AE01D000068B5FC /* main.m in Sources */,
 				9438F6F01AE01EDF0068B5FC /* RegistrationScreen.m in Sources */,
@@ -213,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438F6F21AE0241F0068B5FC /* RegistrationInfoTests.m in Sources */,
 				9438F6ED1AE01E1E0068B5FC /* RegistrationScreenTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,8 +395,23 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/OCMock/headers",
+				);
 				INFOPLIST_FILE = "RegistrationFlow/Info-Test.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RegistrationFlow.app/RegistrationFlow";
 			};
@@ -362,8 +425,23 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/OCMock/headers",
+				);
 				INFOPLIST_FILE = "RegistrationFlow/Info-Test.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OCMock",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RegistrationFlow.app/RegistrationFlow";
 			};
