@@ -14,13 +14,14 @@
 @interface RegistrationInfoTests : XCTestCase {
     RegistrationInfo*   _sut;
 }
-
 @end
+
 
 @implementation RegistrationInfoTests
 
 - (void)setUp {
     [super setUp];
+    
     _sut = [[RegistrationInfo alloc] init];
     _sut.email = @"email@mail.ru";
     _sut.username = @"validUsername1";
@@ -29,6 +30,7 @@
 
 - (void)tearDown {
     _sut = nil;
+    
     [super tearDown];
 }
 
@@ -52,43 +54,33 @@
 }
 
 - (void)testValidateUsername {
-    NSString* result = [_sut validate];
-    
-    XCTAssertNil(result);
+    XCTAssertNil([_sut validate]);
 }
 
 - (void)testValidateUsernameFail {
     _sut.username = @"validUsername1+";
-    NSString* result = [_sut validate];
-    
-    XCTAssertNotNil(result);
+
+    XCTAssertNotNil([_sut validate]);
 }
 
 - (void)testValidateEmail {
-    NSString* result = [_sut validate];
-    
-    XCTAssertNil(result);
+    XCTAssertNil([_sut validate]);
 }
 
 - (void)testValidateEmailFail {
     _sut.email = @"email";
-    NSString* result = [_sut validate];
-    
-    XCTAssertNotNil(result);
+
+    XCTAssertNotNil([_sut validate]);
 }
 
 - (void)testValidatePassword {
-    NSString* result = [_sut validate];
-    
-    XCTAssertNil(result);
+    XCTAssertNil([_sut validate]);
 }
 
 - (void)testValidatePasswordFail {
     _sut.password = @"1";
     
-    NSString* result = [_sut validate];
-    
-    XCTAssertNotNil(result);
+    XCTAssertNotNil([_sut validate]);
 }
 
 @end

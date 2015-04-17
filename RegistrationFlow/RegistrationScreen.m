@@ -9,12 +9,13 @@
 #import "RegistrationScreen.h"
 #import "RegistrationInfo.h"
 
+
 @implementation RegistrationScreen
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _info = [[RegistrationInfo alloc]init];
+    [self resetRegistrationInfo];
 }
 
 - (IBAction)tapRegister:(id)sender {
@@ -24,10 +25,16 @@
         _usernameField.text = nil;
         _passwordField.text = nil;
         _emailField.text = nil;
+        
+        [self resetRegistrationInfo];
     } else {
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:validationResult delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
+}
+
+- (void)resetRegistrationInfo {
+    _info = [RegistrationInfo new];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -36,14 +43,11 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if([textField isEqual:_usernameField]) {
+    if(textField == _usernameField) {
         _info.username = textField.text;
-    }
-    
-    if([textField isEqual:_emailField]) {
+    } else if(textField == _emailField) {
         _info.email = textField.text;
-    }
-    if([textField isEqual:_passwordField]) {
+    } else if(textField == _passwordField) {
         _info.password = textField.text;
     }
 }

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface RegistrationInfo : NSObject
 
 @property (nonatomic, copy) NSString* username;

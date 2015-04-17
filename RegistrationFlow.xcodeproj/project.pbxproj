@@ -17,6 +17,7 @@
 		9438F6F21AE0241F0068B5FC /* RegistrationInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6F11AE0241F0068B5FC /* RegistrationInfoTests.m */; };
 		9438F6F51AE024730068B5FC /* RegistrationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F6F41AE024730068B5FC /* RegistrationInfo.m */; };
 		9438F7021AE0294E0068B5FC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9438F7011AE0294E0068B5FC /* libOCMock.a */; };
+		9438F7051AE031AC0068B5FC /* AppDelegateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9438F7041AE031AC0068B5FC /* AppDelegateTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		9438F6FF1AE0294E0068B5FC /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
 		9438F7001AE0294E0068B5FC /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		9438F7011AE0294E0068B5FC /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		9438F7031AE031AC0068B5FC /* AppDelegateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateTest.h; sourceTree = "<group>"; };
+		9438F7041AE031AC0068B5FC /* AppDelegateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				9438F6F41AE024730068B5FC /* RegistrationInfo.m */,
 				9438F6C71AE01D000068B5FC /* AppDelegate.h */,
 				9438F6C81AE01D000068B5FC /* AppDelegate.m */,
+				9438F7031AE031AC0068B5FC /* AppDelegateTest.h */,
+				9438F7041AE031AC0068B5FC /* AppDelegateTest.m */,
 				9438F6D21AE01D010068B5FC /* LaunchScreen.xib */,
 				9438F6E91AE01D5E0068B5FC /* Main.storyboard */,
 				9438F6C31AE01D000068B5FC /* Supporting Files */,
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9438F7051AE031AC0068B5FC /* AppDelegateTest.m in Sources */,
 				9438F6F51AE024730068B5FC /* RegistrationInfo.m in Sources */,
 				9438F6C91AE01D000068B5FC /* AppDelegate.m in Sources */,
 				9438F6C61AE01D000068B5FC /* main.m in Sources */,

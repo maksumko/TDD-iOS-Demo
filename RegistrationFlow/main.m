@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "AppDelegateTest.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        Class delegate;
+        if(NSClassFromString(@"XCTestCase")) {
+            delegate = [AppDelegateTest class];
+        } else {
+            delegate = [AppDelegate class];
+        }
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass(delegate));
     }
 }

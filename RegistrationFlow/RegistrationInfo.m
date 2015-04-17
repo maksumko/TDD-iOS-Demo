@@ -8,32 +8,19 @@
 
 #import "RegistrationInfo.h"
 
+
 @implementation RegistrationInfo
 
 - (NSString *)validate {
+    NSString* result = [self validateUsername];
     
-    NSString* result;
+    if(!result)
+        result = [self validateEmail];
     
+    if(!result)
+        result = [self validatePassword];
     
-    result = [self validateUsername];
-    
-    if(result)
-        return result;
-    
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    
-    result = ([predicate evaluateWithObject:_email] ? nil : @"Incorrect email");
-    
-    if(result)
-        return result;
-    
-     result = (([_password length] >= 16) ? nil : @"Password should consist at least of 16 characters");
-    
-    if(result)
-        return result;
-    
-    return nil;
+    return result;
 }
 
 - (NSString *)validateUsername {
@@ -41,6 +28,17 @@
     NSRange range = [_username rangeOfCharacterFromSet:unwantedCharacters];
     
     return (range.location == NSNotFound ? nil : @"Invalid username");
+}
+
+- (NSString *)validatePassword {
+    return (([_password length] >= 16) ? nil : @"Password should consist at least of 16 characters");
+}
+
+- (NSString *)validateEmail {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return ([predicate evaluateWithObject:_email] ? nil : @"Incorrect email");
 }
 
 @end

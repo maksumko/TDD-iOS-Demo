@@ -64,47 +64,44 @@
     XCTAssertTrue([_sut.passwordField.delegate isEqual:_sut]);
 }
 
+- (UITextField *)mockTextField {
+    id mockField = [OCMockObject mockForClass:[UITextField class]];
+    [[[mockField stub] andReturn:@"some text"] text];
+    
+    return mockField;
+}
+
 - (void)testSetUsername {
     [_sut viewDidLoad];
-    NSString* username = @"qwe";
-    id mockField = [OCMockObject mockForClass:[UITextField class]];
-    [[[mockField stub] andReturn:username] text];
-    _sut.usernameField = mockField;
+    _sut.usernameField = [self mockTextField];
     
-    [_sut textFieldDidEndEditing:mockField];
+    [_sut textFieldDidEndEditing:_sut.usernameField];
     
-    XCTAssertEqualObjects(username, _sut.info.username);
+    XCTAssertEqualObjects(_sut.usernameField.text, _sut.info.username);
 }
 
 - (void)testSetPassword {
     [_sut viewDidLoad];
-    NSString* result = @"qwe";
-    id mockField = [OCMockObject mockForClass:[UITextField class]];
-    [[[mockField stub] andReturn:result] text];
-    _sut.passwordField = mockField;
+    _sut.passwordField = [self mockTextField];
     
-    [_sut textFieldDidEndEditing:mockField];
+    [_sut textFieldDidEndEditing:_sut.passwordField];
     
-    XCTAssertEqualObjects(result, _sut.info.password);
+    XCTAssertEqualObjects(_sut.passwordField.text, _sut.info.password);
 }
 
 - (void)testSetEmail {
     [_sut viewDidLoad];
-    NSString* result = @"qwe";
-    id mockField = [OCMockObject mockForClass:[UITextField class]];
-    [[[mockField stub] andReturn:result] text];
-    _sut.emailField = mockField;
+    _sut.emailField = [self mockTextField];
     
-    [_sut textFieldDidEndEditing:mockField];
+    [_sut textFieldDidEndEditing:_sut.emailField];
     
-    XCTAssertEqualObjects(result, _sut.info.email);
+    XCTAssertEqualObjects(_sut.emailField.text, _sut.info.email);
 }
 
 - (void)testSuccesedValidation {
     [_sut view];
     id mockInfo = OCMClassMock([RegistrationInfo class]);
     [[[mockInfo stub] andReturn:nil] validate];
-    
     
     _sut.usernameField.text = @"1";
     _sut.emailField.text = @"1";
@@ -158,6 +155,48 @@
     
     
     [mockAlert verify];
+}
+
+- (void)testResetInfoAfterSuccesValidation {
+    // ARRANGE
+    id mockRegInfo = OCMClassMock([RegistrationInfo class]);
+    [[[mockRegInfo stub] andReturn:nil] validate];
+    _sut.info = mockRegInfo;
+    
+    // ACT
+    [_sut tapRegister:nil];
+    
+    // ASSERT
+    XCTAssertNotEqualObjects(_sut.info, mockRegInfo);
+}
+
+- (void)testDoNotShowAlertOnRegisterTapIfInfoIsValid {
+    // ARRANGE
+    id mockRegInfo = OCMClassMock([RegistrationInfo class]);
+    [[[mockRegInfo stub] andReturn:nil] validate];
+    _sut.info = mockRegInfo;
+    
+    id mockAlert = OCMClassMock([UIAlertView class]);
+    [[mockAlert reject] alloc];
+    
+    // ACT
+    [_sut tapRegister:nil];
+    
+    // ASSERT
+    [mockAlert verify];
+    [mockAlert stopMocking];
+}
+
+- (void)testControllerHidesKeyboardOnReturn {
+    // ARRANGE
+    id fieldMock = OCMClassMock([UITextField class]);
+    [[fieldMock expect] resignFirstResponder];
+    
+    // ACT
+    [_sut textFieldShouldReturn:fieldMock];
+    
+    // ASSERT
+    [fieldMock verify];
 }
 
 @end
