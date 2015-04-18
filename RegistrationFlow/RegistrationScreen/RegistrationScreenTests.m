@@ -134,6 +134,7 @@
     
 
     [mockAlert verify];
+    [mockAlert stopMocking];
 }
 
 - (void)testFailValidationShowCorrectMessage {
@@ -155,13 +156,20 @@
     
     
     [mockAlert verify];
+    [mockAlert stopMocking];
+}
+
+- (id)setupStubValidation:(BOOL)success {
+    id mockRegInfo = OCMClassMock([RegistrationInfo class]);
+    [[[mockRegInfo stub] andReturn:(success?nil:@"error")] validate];
+    _sut.info = mockRegInfo;
+    
+    return mockRegInfo;
 }
 
 - (void)testResetInfoAfterSuccesValidation {
     // ARRANGE
-    id mockRegInfo = OCMClassMock([RegistrationInfo class]);
-    [[[mockRegInfo stub] andReturn:nil] validate];
-    _sut.info = mockRegInfo;
+    id mockRegInfo = [self setupStubValidation:YES];
     
     // ACT
     [_sut tapRegister:nil];
@@ -172,9 +180,8 @@
 
 - (void)testDoNotShowAlertOnRegisterTapIfInfoIsValid {
     // ARRANGE
-    id mockRegInfo = OCMClassMock([RegistrationInfo class]);
-    [[[mockRegInfo stub] andReturn:nil] validate];
-    _sut.info = mockRegInfo;
+    [_sut view];
+    [self setupStubValidation:YES];
     
     id mockAlert = OCMClassMock([UIAlertView class]);
     [[mockAlert reject] alloc];
@@ -197,6 +204,38 @@
     
     // ASSERT
     [fieldMock verify];
+}
+
+- (void)testResignFirstResponderOnRegisterTap {
+    // ARRANGE
+    id mockView = OCMClassMock([UIView class]);
+    [[mockView expect] endEditing:YES];
+    _sut.view = mockView;
+    
+    // ACT
+    [_sut tapRegister:nil];
+    
+    // ASSERT
+    [mockView verify];
+}
+
+- (void)testHasSegwayWithIdentifier {
+    XCTAssertNoThrow([_sut performSegueWithIdentifier:@"showSuccess" sender:nil]);
+}
+
+- (void)testShowsNextControllerOnSuccess {
+    // ARRANGE
+    [_sut view];
+    [self setupStubValidation:YES];
+    
+    id mockSut = OCMPartialMock(_sut);
+    [[mockSut expect] performSegueWithIdentifier:@"showSuccess" sender:OCMOCK_ANY];
+    
+    // ACT
+    [_sut tapRegister:nil];
+    
+    // ASSERT
+    [mockSut verify];
 }
 
 @end

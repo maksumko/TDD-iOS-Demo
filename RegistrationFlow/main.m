@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "AppDelegateTest.h"
+
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         Class delegate;
         if(NSClassFromString(@"XCTestCase")) {
-            delegate = [AppDelegateTest class];
+            delegate = [UIResponder class];
         } else {
             delegate = [AppDelegate class];
         }

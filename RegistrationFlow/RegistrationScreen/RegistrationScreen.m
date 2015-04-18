@@ -10,6 +10,9 @@
 #import "RegistrationInfo.h"
 
 
+static NSString* const kSuccessSegueId = @"showSuccess";
+
+
 @implementation RegistrationScreen
 
 - (void)viewDidLoad {
@@ -19,6 +22,8 @@
 }
 
 - (IBAction)tapRegister:(id)sender {
+    [self.view endEditing:YES];
+    
     NSString* validationResult = [_info validate];
     
     if(validationResult == nil) {
@@ -27,8 +32,9 @@
         _emailField.text = nil;
         
         [self resetRegistrationInfo];
+        [self performSegueWithIdentifier:kSuccessSegueId sender:self];
     } else {
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"" message:validationResult delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:validationResult delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
 }
